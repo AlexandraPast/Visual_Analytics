@@ -1,2 +1,2 @@
-# Language_Analytics
-Repository for assignments for the course Language analytics
+# Visual Analytics
+Repository for assignments for the course Visual analytics
