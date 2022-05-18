@@ -24,6 +24,8 @@ The two classifiers used were simple logistic regression classifier and a neural
 For this task I have used the code from the lecture 7 and applied it to the CIFAR10 dataset from tensorflow library. In `logistic_regression.py` I loaded and preprocessed the data by turning them to gray scale, normalising using minmax function and reshaping. I have loaded the logistic regression classifier, trained it on the training dataset and used it to predict classes of my testing data. As a result I have saved a classification report with precision and accuracy scores. 
 In `nn_classifier.py` I followed the same steps of preprocessing and then applied neural network classifier from premade module in utils. Similarly, I trained the classifier, made predictions on testing data and saves a classification report of precision and accuracy scores.
 
+## Scripts
+
 #### This repository consists of:
 - **in**: folder containing the input for the code or data. In this case the data is cifar10 and is loaded from a library.
 - **out**: folder containing the output of the script. The output is classification report for logistic regression
@@ -35,7 +37,7 @@ In `nn_classifier.py` I followed the same steps of preprocessing and then applie
   - `utils`: contains modules used in scripts
 - `setup.sh`: installs the necessary libraries to run the scripts
 
-## The scripts do the following:
+#### The scripts do the following:
 
 **`logistic_regression.py`:**
 - Load the CIFAR_10 data
