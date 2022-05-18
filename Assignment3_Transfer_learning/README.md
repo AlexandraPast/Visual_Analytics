@@ -17,7 +17,7 @@ Your .py script should minimally do the following:
 - Save the classification report
 
 ## Methods
-For this assignment I wrote a script `Transfer_learning_1.2` in which I load the CIFAR10 dataset from a library. I normalised the data and binarized the labels in order to feed it to the model. I proceeded to load the VGG16 model for feature extraction and defined new classification layers for our classification task. I trained the new classifier on training data and proceedd to make predicitions and finally save the classification report and loss and accuracy plot. 
+For this assignment I wrote a script `Transfer_learning_1.2` in which I load the CIFAR10 dataset from a library. I normalised the data and binarized the labels in order to feed it to the model. I proceeded to load the VGG16 model for feature extraction and defined new classification layers for our classification task. I trained the new classifier on training data and proceeded to make predictions and finally save the classification report and loss and accuracy plot. 
 
 ## Scripts
 #### This repository consists of folders:
