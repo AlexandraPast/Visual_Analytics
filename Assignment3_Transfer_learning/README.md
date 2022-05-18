@@ -54,7 +54,7 @@ All, using pre-set hyperparameters and plot and report names.
 - **Report:** class_report(.txt) (Report name)
 
 ## HOW to correctly run the script ##
-1. Set your working directory to be the folder containing all the subfolders (in, out, src) using cd "path" command.
+1. Set your working directory to be the folder containing all the subfolders (in, out, src) using `cd "path"` command.
 2. Open the console and type: `bash setup.sh` (This should install the necessary packadges, if not, open the file and proceed
     to run the code manually.)
 2. Type `python` and follow with the path to `Transfer_learning_1.2.py` which should be `src/Transfer_learning_1.2.py` if you set your working directory correctly. 
