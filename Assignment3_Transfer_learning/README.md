@@ -28,7 +28,7 @@ For this assignment I wrote a script `Transfer_learning_1.2` in which I load the
   - `Transfer_learning_1.2`: is the script to run 
 - `setup.sh`: installs the necessary libraries to run the script itself
 
-## The script does the following:
+#### The script does the following:
 - Prints all passed argument values or default values
 - Loads the CIFAR10 dataset
 - Uses VGG16 to perform feature extraction
