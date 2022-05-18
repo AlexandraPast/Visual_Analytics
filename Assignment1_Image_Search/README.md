@@ -60,7 +60,7 @@ using Open-CV library functions. After creating the histogram I have compared it
 - Save an image which shows the target image, the three most similar, and the calculated distance score.
 - Save a CSV which has one column for the filename and three columns showing the filenames of the closest images in descending order
 
-### Required positional arguments:
+#### Required positional arguments:
 - **Image:** example: `image_0002.jpg`
 - **Directory:** example: `../../CDS-VIS/flowers`
 
