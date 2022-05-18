@@ -8,7 +8,7 @@ I worked on this code alone.
 ## Assignment description
 The aim of this assignment was to create colour histograms of images and use them to find the images closest to a target image specified by user. Using this method we can select an image and compare it to other images effectively finding the pictures, which most resemble the colour palette of the target picture.
 
-### The specific tasks were:
+#### The specific tasks were:
 - write a small Python program to compare image histograms quantitively using Open-CV and the other image processing tools you've already encountered.
 - Your script should do the following:
   - Take a user-defined image from the folder
@@ -22,6 +22,8 @@ For this assignment I chose to use two approaches to finding the closest images 
 - Firstly, in the script `img_search_hist.py` I have itterated through the whole dataset extracting the colour information to plot histograms for each picture
 using Open-CV library functions. After creating the histogram I have compared it to the histogram of the target image and calculated a distance score. I saved all the distance scores and extracted the three best, matching them with the images they belonged to. As a result, I created an image comprised of the three closest images and the target image with their distance scores written on the bottom of each image. I have also created a .csv file containing the target image and closest images in descending order (descending by distance scores). 
 - Secondly, in the script `img_search_nn.py` I have used another method we have learned later on in the course. Using VGG16 model I itterated through the images, extracted their features so that they could be analysed using Nearest neighbours method from sklearn library. Again, I extracted the 3 closest images and created a plot and a .csv file. 
+
+## Scripts
 
 #### This repository consists of:
 - **in**: folder containing the input for the code or data. The data I used were flower images from course repository CDS-VIS, however, the scripts will run on any data of format .jpg, .jpeg or .png
@@ -37,7 +39,7 @@ using Open-CV library functions. After creating the histogram I have compared it
   - `utils`: contains modules used in scripts
 - `setup.sh`: installs the necessary libraries to run the scripts
 
-## The scripts do the following:
+#### The scripts do the following:
 
 **`img_search_hist.py`:**
 - Take a user-defined image from the folder
@@ -46,7 +48,7 @@ using Open-CV library functions. After creating the histogram I have compared it
 - Save an image which shows the target image, the three most similar, and the calculated distance score.
 - Save a CSV which has one column for the filename and three columns showing the filenames of the closest images in descending order
 
-### Required positional arguments:
+#### Required positional arguments:
 - **Image:** example: `image_0002.jpg`
 - **Directory:** example: `../../CDS-VIS/flowers`
 
