@@ -66,7 +66,7 @@ using Open-CV library functions. After creating the histogram I have compared it
 
 ## HOW to correctly run the scripts ##
 1. Set your working directory to be the folder containing all the subfolders (in, out, src) using `cd "path"` command.
-2. Open the console and type: `bash setup.sh` (this should install the necessary packadges, it might be necssary to provide path)
+2. Open the console and type: `bash setup.sh` (this should install the necessary packages, it might be necssary to provide path)
 3. Type `python` and follow with the path to `img_search_hist.py` which should be `src/img_search_hist.py` if you set your working directory correctly. Next, specify the target image and directory.
 5. Example: 
    - `cd user/file/file/Assignment1_Image_Search` 
