@@ -52,7 +52,7 @@ In `nn_classifier.py` I followed the same steps of preprocessing and then applie
 
 
 ## HOW to correctly run the script ##
-1. Set your working directory to be the folder containing all the subfolders (in, out, src) using cd "path" command.
+1. Set your working directory to be the folder containing all the subfolders (in, out, src) using `cd "path"` command.
 3. Open the console and type: `bash setup.sh` (this should install the necessary packadges, it might be necssary to provide path)
 4. Type `python` and follow with the path to `logistic_regression.py` which should be `src/logistic_regression.py` if you set your working directory correctly. Same applies to the `nn_classifier.py`. 
 4. Example: 
