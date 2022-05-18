@@ -8,7 +8,7 @@ I worked on this code alone.
 ## Assignment description
 The aim of this assignment was to take the CIFAR10 data set and use pre-trained CNN VGG16 for feature extraction and classification. By using a CNN we dont have to turn the data to grayscale or flatten them, which means we can keep a lot of potentially important information about the data. By using a CNN like VGG16 we can also use the fact it has already been pretrained on large quantities of data and so they are more efficient than a model starting from 0. 
 
-### The specific tasks were:
+#### The specific tasks were:
 Your .py script should minimally do the following:
 - Load the CIFAR10 dataset
 - Use VGG16 to perform feature extraction
@@ -37,7 +37,7 @@ For this assignment I wrote a script `Transfer_learning_1.2` in which I load the
 
 All, using pre-set hyperparameters and plot and report names.
 
-### Default values of optional arguments:
+#### Default values of optional arguments:
 **`tf.keras.optimizers.schedules.ExponentialDecay` hyperparameters:** 
 - **Lr:** 0.01 (Initial learning rate)
 - **Ds:** 10000 (Decay steps)
