@@ -1,6 +1,6 @@
 # Assignment 1 - Image search
 
-The files in here are part of repository for my course in Language analytics.
+The files in here are part of repository for my course in Visual analytics.
 
 ## Contribution:
 I worked on this code alone. 
