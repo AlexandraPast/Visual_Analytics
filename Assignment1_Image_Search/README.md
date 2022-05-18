@@ -68,7 +68,9 @@ using Open-CV library functions. After creating the histogram I have compared it
 3. Type `python` and follow with the path to `img_search_hist.py` which should be `src/img_search_hist.py` if you set your working directory correctly. Next, specify the target image and directory.
 5. Example: 
    - `cd user/file/file/Assignment1_Image_Search` 
+   - `bash setup.sh`
    - `python src/img_search_hist.py image_0002.jpg ../../CDS-VIS/flowers`
+   - `python src/img_search_hist.py -h` for help explanations (`-h` or `--help`)
 
 ## Discussion of results
 Since I used two different methods of analysis, I have also ended up with different results. In the case of colour histogram distance scores, I found three images which resemble the target image most in colour, however, this method doesn't account for other factors such as shape of the object on the picture. Using the nearest neighbours method seems more effective to me if our goal is to find the images that are closest to the target image, as VGG16 model is able to account for the objects or shapes in the picture as well, apart from only colour. If we look at my results in the `out` folder and compare, we can see that nearest neighbours found images with the same type of flower as in the image 0002.jpg which I used as my testing image. The colour histogram method failed to do so, but it was still able to find the one image that was "almost" a copy of the target image.
