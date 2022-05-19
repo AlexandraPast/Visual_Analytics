@@ -1,6 +1,6 @@
 # Visual Analytics
 Consists of 4 projects - 3 class assignments + 1 self-assigned.
-## Link to my Github repository: https://github.com/AlexandraPast/Visual_Analytics
+**Link to my Github repository:** https://github.com/AlexandraPast/Visual_Analytics
 
 
 
