@@ -259,7 +259,7 @@ def main():
     # compute quantities required for featurewise normalization
     datagen.fit(X_train)
     # fits the model on batches with real-time data augmentation:
-    H = model.fit(datagen.flow(X_train, y_train, batch_size=150),
+    H = model.fit(datagen.flow(X_train, y_train, batch_size = batch_size),
                   validation_data = (X_test, y_test),
                   epochs = epochs,
                   verbose = 1,
