@@ -20,6 +20,8 @@ from tensorflow.keras.layers import (Flatten,
                                      Dense, 
                                      Dropout, 
                                      BatchNormalization)
+from keras.callbacks import ModelCheckpoint, EarlyStopping
+
 # scikit-learn
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
@@ -81,6 +83,7 @@ def get_data(directory, labels, all_images, all_labels):
                 image = img_to_array(image)
                 #reshape data for the model
                 image = image.reshape((image.shape[0], image.shape[1], image.shape[2]))
+                image = preprocess_input(image)
                 #append the image array to list of images
                 all_images.append(image)
                 #append the numeric index of label to list of labels
@@ -106,12 +109,12 @@ def main():
     my_parser.add_argument('-Batch',
                            metavar = '-batch size',
                            type = np.int64,
-                           default = 128,
+                           default = 150,
                            help = 'input integer number; np.int64')
     my_parser.add_argument('-Epochs',
                            metavar = '-epochs',
                            type = np.int64,
-                           default = 100,
+                           default = 150,
                            help = 'input integer number; np.int64')
     #Plot name and report name to be specified
     my_parser.add_argument('-Plot',
@@ -185,27 +188,28 @@ def main():
 
     print("------Loading the model------")
     #load model without classifier layers
-    model = VGG16(include_top=False, 
-                  pooling='avg',
-                  input_shape=(224, 224, 3))
+    model = VGG16(include_top = False, 
+                  pooling = 'avg',
+                  input_shape = (224, 224, 3))
     
     #mark loaded layers as not trainable
     for layer in model.layers:
         layer.trainable = False
     print(model.summary())
     
-    tf.keras.backend.clear_session()
-    
     #add new classifier layers
     flat1 = Flatten()(model.layers[-1].output)
-    class1 = Dense(128, activation='relu')(flat1)
-    output = Dense(categories, activation='softmax')(class1)
+    bn = BatchNormalization()(flat1)
+    class1 = Dense(256, 
+                   activation = 'relu')(bn)
+    class2 = Dense(128, 
+                   activation = 'relu')(class1)
+    output = Dense(10, 
+                   activation = 'softmax')(class2)
 
     #define new model
-    model = Model(inputs=model.inputs, 
-              outputs=output)
-    #summarize
-    print(model.summary())
+    model = Model(inputs = model.inputs, 
+                  outputs = output)
     
     #define optimizer
     lr_schedule = tf.keras.optimizers.schedules.ExponentialDecay(
@@ -214,21 +218,52 @@ def main():
         decay_rate=0.9)
     sgd = SGD(learning_rate=lr_schedule)
     
-    #compile
-    model.compile(optimizer=sgd,
-                  loss='categorical_crossentropy',
-                  metrics=['accuracy'])
-    
+    # compile
+    model.compile(optimizer = sgd,
+                  loss = 'categorical_crossentropy',
+                  metrics = ['accuracy'])
+    # summarize
+    model.summary()
+
+
+    #generate new data
+    datagen = ImageDataGenerator(horizontal_flip = True, 
+                                 rotation_range = 20,
+                                 vertical_flip = False,
+                                 zoom_range = 0.1,
+                                 width_shift_range = 0.1,  
+                                 height_shift_range = 0.1,
+                                 )
+
+    #early stopping and model checkpoints
+    steps_per_epoch = y_train.size / batch_size
+    save_period = 10
+
+    checkpoint = ModelCheckpoint("vgg16_1.h5",
+                                 monitor="val_accuracy",
+                                 verbose=1,
+                                 save_best_only=True,
+                                 save_weights_only=False,
+                                 mode='auto',
+                                 save_freq=int(save_period * steps_per_epoch))
+    early = EarlyStopping(monitor='val_accuracy',
+                          min_delta=0,
+                          patience=20,
+                          verbose=1,
+                          mode='auto')
    
     print("------Training the model------")
     print("This might take a while")
     
     #train the model
-    H = model.fit(X_train, y_train, 
-                  validation_data=(X_test, y_test), 
-                  batch_size=batch_size,
-                  epochs=epochs,
-                  verbose=1)
+    # compute quantities required for featurewise normalization
+    datagen.fit(X_train)
+    # fits the model on batches with real-time data augmentation:
+    H = model.fit(datagen.flow(X_train, y_train, batch_size=150),
+                  validation_data = (X_test, y_test),
+                  epochs = epochs,
+                  verbose = 1,
+                  callbacks = [checkpoint,early])
     
     #visualise with a plot and save plot
     plot_history(H, epochs, plot_name)
@@ -236,9 +271,9 @@ def main():
     print("------Model predictions and accuracy------")
     #create predictions and print report
     predictions = model.predict(X_test, batch_size = batch_size)
-    report = classification_report(y_test.argmax(axis=1),
-                                   predictions.argmax(axis=1),
-                                   target_names=labels)
+    report = classification_report(y_test.argmax(axis = 1),
+                                   predictions.argmax(axis = 1),
+                                   target_names = labels)
     
     print(report)
     
