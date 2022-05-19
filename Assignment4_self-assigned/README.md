@@ -58,8 +58,7 @@ All, using pre-set hyperparameters and plot and report names.
    - `python src/PaintersVGG.py -h` for help explanations (`-h` or `--help`)
 
 ## Discussion of results
-During the training, the new classifier reached around 51% training accuracy with 100 epochs and around 49% accuracy on testing data. In the classification report, the weighted average accuracy reached 50%. The training curves suggest that the accuracy continues to climb and losses continue to go down. While testing different hyperparameters and layer setups I have found that a lower learning rate and higher amount of epochs benefit the performance quite well. Additionally, the less complex model was able to generalise better than the more complex setups I have tried because they began to overfit. 
-I also used CNNs with TensorFlow but the VGG16 model seemed to have the smoothest performance, even though the training took more time.
-Perhaps using additional methods such as data augmentation or regularisation could add to the model's performance as well. 
+During the training, the first classifier reached around 51% training accuracy with 100 epochs and around 49% accuracy on testing data. In the classification report, the weighted average accuracy reached 50%. The training curves suggest that the accuracy continues to climb and losses continue to go down, however, the testing accuracy seemenigly started to plateau. While testing different hyperparameters and layer setups I have found that a lower learning rate and higher amount of epochs benefit the performance quite well. In further experimenting, I have trained a new model where I added an additional layer with 256 nodes and used data augmentation to generate new images out of the images available. The weighted average accuracy increased to __ and I observed the losses decreasing and accuracy slowly increasing continuously. 
+Perhaps using more data in the future and including additional methods such as regularisation could add to the model's performance as well. 
 
 
