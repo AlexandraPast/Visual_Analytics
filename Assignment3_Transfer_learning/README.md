@@ -1,12 +1,12 @@
 # Assignment 3 - Transfer learning + CNN classification
 
-The files in here are part of repository for my course in Visual analytics.
+The files here are part of the repository for my course in Visual analytics.
 
 ## Contribution:
 I worked on this code alone. 
 
 ## Assignment description
-The aim of this assignment was to take the CIFAR10 data set and use pre-trained CNN VGG16 for feature extraction and classification. By using a CNN we dont have to turn the data to grayscale or flatten them, which means we can keep a lot of potentially important information about the data. By using a CNN like VGG16 we can also use the fact it has already been pretrained on large quantities of data and so they are more efficient than a model starting from 0. 
+The aim of this assignment was to take the CIFAR10 data set and use pre-trained CNN VGG16 for feature extraction and classification. By using a CNN we don't have to turn the data to grayscale or flatten them, which means we can keep a lot of potentially important information about the data. By using a CNN like VGG16 we can also use the fact it has already been pre-trained on large quantities of data and so they are more efficient than a model starting from 0. 
 
 #### The specific tasks were:
 Your .py script should minimally do the following:
@@ -17,12 +17,12 @@ Your .py script should minimally do the following:
 - Save the classification report
 
 ## Methods
-For this assignment I wrote a script `Transfer_learning_1.2` in which I load the CIFAR10 dataset from a library. I normalised the data and binarized the labels in order to feed it to the model. I proceeded to load the VGG16 model for feature extraction and defined new classification layers for our classification task. I trained the new classifier on training data and proceeded to make predictions and finally save the classification report and loss and accuracy plot. 
+For this assignment, I wrote a script `Transfer_learning_1.2` in which I load the CIFAR10 dataset from a library. I normalised the data and binarized the labels in order to feed it to the model. I proceeded to load the VGG16 model for feature extraction and defined new classification layers for our classification task. I trained the new classifier on training data and proceeded to make predictions and finally save the classification report and loss and accuracy plot. 
 
 ## Scripts
 #### This repository consists of folders:
-- **in**: folder containing the input for the code or data. In this case script loads CIFAR10 data set itself so no files necessary. 
-- **out**: folder containing the output of the script. The output is a plot of loss and accuracy `.png` as well as a `.txt`
+- **in**: a folder containing the input for the code or data. In this case, the script loads the CIFAR10 data set itself so no files necessary. 
+- **out**: a folder containing the output of the script. The output is a plot of loss and accuracy `.png` as well as a `.txt`
           file containing the classification report for the model. 
 - **src**: contains the script itself
   - `Transfer_learning_1.2`: is the script to run 
@@ -54,11 +54,11 @@ All, using pre-set hyperparameters and plot and report names.
 - **Report:** class_report(.txt) (Report name)
 
 ## HOW to correctly run the script ##
-1. Set your working directory to be the folder containing all the subfolders (in, out, src) using `cd "path"` command.
-2. Open the console and type: `bash setup.sh` (This should install the necessary packadges, if not, open the file and proceed
+1. Set your working directory to be the folder containing all the subfolders (in, out, src) using the `cd "path"` command.
+2. Open the console and type: `bash setup.sh` (This should install the necessary packages, if not, open the file and proceed
     to run the code manually.)
-2. Type `python` and follow with the path to `Transfer_learning_1.2.py` which should be `src/Transfer_learning_1.2.py` if you set your working directory correctly. 
-3. Following the path to the `.py` script should be your parameters if you wish to specify any. They have to be specified by the argument name and value. These are optional so it is possible to run the code without speicying any, specifying some or all of them. 
+2. Type `python` and follow it with the path to `Transfer_learning_1.2.py` which should be `src/Transfer_learning_1.2.py` if you set your working directory correctly. 
+3. Following the path to the `.py` script should be your parameters if you wish to specify any. They have to be specified by the argument name and value. These are optional so it is possible to run the code without specifying any, specifying some or all of them. 
 4. Example: 
    - `cd user/file/file/Assignment3_Transfer_learning`
    - `bash setup.sh`
@@ -75,4 +75,4 @@ All, using pre-set hyperparameters and plot and report names.
    - `python src/Transfer_learning_1.2.py -h` for help explanations (`-h` or `--help`)
 
 ## Discussion of results
-During the training the new classifier reached around 62% training accuracy with 10 epochs and around 58% accuracy on testing data. In the classification report the weighted average accuracy reached 59%. The training curves suggest that training accuracy continues to climb while testing began to somewhat plateau. It is my belief that that could suggest overfitting of the model on the training data. Perhaps using additional methods such as, data augmentation, regularisation or dropout could add to the models performance. It is also possible that running the model with lower learning rate and more epochs could also benefit the final results as we can still see the loss decreasing in both training and testing. 
+During the training, the new classifier reached around 62% training accuracy with 10 epochs and around 58% accuracy on testing data. In the classification report, the weighted average accuracy reached 59%. The training curves suggest that training accuracy continues to climb while testing began to somewhat plateau. It is my belief that that could suggest overfitting of the model on the training data. Perhaps using additional methods such as data augmentation, regularisation or dropout could add to the model's performance. It is also possible that running the model with a lower learning rate and more epochs could also benefit the final results as we can still see the loss decreasing in both training and testing. 
