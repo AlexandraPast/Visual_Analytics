@@ -1,3 +1,10 @@
+# Visual Analytics
+Consists of 4 projects - 3 class assignments + 1 self-assigned.
+
+**Author:** Alexandra Pasternakova
+
+**Link to my Github repository:** https://github.com/AlexandraPast/Visual_Analytics
+
 # Assignment 1 - Image search
 
 The files here are part of the repository for my course in Visual analytics.
